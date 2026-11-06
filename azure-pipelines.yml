@@ -133,16 +133,16 @@ stages:
               oc apply -f helm/route.yaml
 
               echo "=== 5. Iniciando Build en OpenShift (Dockerfile) ==="
-              oc start-build jee-msa-web-demo-pipeline --follow
+              oc start-build gtaimalv-msa-web-demo-pipeline --follow
 
               echo "=== 6. Reiniciando el despliegue para tomar la nueva imagen ==="
-              oc rollout restart deployment/jee-msa-web-demo-pipeline
+              oc rollout restart deployment/gtaimalv-msa-web-demo-pipeline
 
               echo "=== 7. Esperando a que el Pod esté listo ==="
-              oc rollout status deployment/jee-msa-web-demo-pipeline
+              oc rollout status deployment/gtaimalv-msa-web-demo-pipeline
 
               echo "=== 8. Obteniendo URL de la Aplicación ==="
-              oc get route jee-msa-web-demo-pipeline -o jsonpath='{"URL: http://"}{.spec.host}{"\n"}'
+              oc get route gtaimalv-msa-web-demo-pipeline -o jsonpath='{"URL: http://"}{.spec.host}{"\n"}'
             displayName: 'Descarga CLI, Login y Despliegue Docker'
 
   # ==========================================
